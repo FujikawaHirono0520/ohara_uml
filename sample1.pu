@@ -1,7 +1,7 @@
 @startuml
-object 生物
-object 人間
-object 魚
-生物 <-- 人間
-生物 <-- 魚
+skinparam actorStyle awesome
+actor Alice
+actor Bob
+Alice -> Bob : ♡I LOVE YOU♡
+hide footbox
 @enduml
