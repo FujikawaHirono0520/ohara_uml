@@ -2,6 +2,6 @@
 skinparam actorStyle awesome
 actor Alice
 actor Bob
-Alice -> Bob : ♡I LOVE YOU♡
+Alice -> Bob : ♡ LOVE ♡
 hide footbox
 @enduml
