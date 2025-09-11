@@ -1,7 +1,3 @@
 @startuml
-skinparam actorStyle awesome
-actor Alice
-actor Bob
-Alice -> Bob : ♡ LOVE ♡
-hide footbox
+test
 @enduml
