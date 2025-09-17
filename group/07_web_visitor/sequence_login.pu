@@ -1,0 +1,41 @@
+@startuml
+
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor 訪問者 as u
+boundary ログイン画面
+boundary メニュー画面
+control 認証
+entity ユーザーデータ
+
+u -> ログイン画面 : ログイン画面を開く()
+activate ログイン画面
+
+u -> ログイン画面 : ユーザーID・パスワード入力()
+ログイン画面 -> 認証 : 入力情報を送信()
+activate 認証
+
+認証 -> ユーザーデータ : ユーザーIDで検索()
+activate ユーザーデータ
+
+alt ユーザーID未入力 or パスワード未入力
+    認証 -> ログイン画面 : エラーメッセージ表示（未入力）()
+else ユーザーID未登録
+    ユーザーデータ --> 認証 : ユーザーなし()
+    認証 -> ログイン画面 : エラーメッセージ表示（未登録）()
+else パスワード不一致
+    ユーザーデータ --> 認証 : パスワード不一致()
+    認証 -> ログイン画面 : エラーメッセージ表示（パスワード誤り）()
+else 認証成功
+    ユーザーデータ --> 認証 : ユーザー情報()
+    認証 -> メニュー画面 : ログイン成功通知()
+    メニュー画面 --> u : メニュー画面を表示()
+end
+
+deactivate ユーザーデータ
+deactivate 認証
+deactivate ログイン画面
+
+@enduml

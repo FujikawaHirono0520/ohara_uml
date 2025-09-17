@@ -4,7 +4,6 @@ skinparam componentStyle rectangle
 ' 訪問者システムのドメインモデル
 
 [訪問者システム] o-- [訪問者]
-[訪問者システム] o-- [Webページ]
 [訪問者] o-- [ユーザーID]
 [訪問者] o-- [パスワード]
 [訪問者] o-- [名前]
@@ -13,7 +12,5 @@ skinparam componentStyle rectangle
 [訪問者] o-- [メールアドレス]
 [訪問者] o-- [電話番号]
 [訪問者] o-- [年齢]
-
-[訪問者] ..> [Webページ] : 閲覧
 
 @enduml

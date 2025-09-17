@@ -1,0 +1,41 @@
+@startuml
+
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
+
+actor 訪問者 as u
+boundary メニュー画面
+boundary 新規登録画面
+boundary 登録完了画面
+control 登録コントローラ
+entity ユーザーデータ
+
+u -> メニュー画面 : 「新規登録」を選択
+メニュー画面 -> 新規登録画面 : 新規登録画面を表示
+
+u -> 新規登録画面 : ユーザー情報入力
+新規登録画面 -> 登録コントローラ : 入力情報を送信
+activate 登録コントローラ
+
+alt 未入力項目や不正な値あり
+    登録コントローラ -> 新規登録画面 : エラーメッセージ表示（未入力・不正値）
+else
+    登録コントローラ -> ユーザーデータ : ユーザーID重複チェック
+    activate ユーザーデータ
+    alt ユーザーID重複
+        ユーザーデータ --> 登録コントローラ : ユーザーID重複
+        登録コントローラ -> 新規登録画面 : エラーメッセージ表示（ID重複）
+    else
+        ユーザーデータ --> 登録コントローラ : 登録可
+        登録コントローラ -> ユーザーデータ : ユーザー情報登録
+        ユーザーデータ --> 登録コントローラ : 登録完了
+        登録コントローラ -> 登録完了画面 : 登録完了通知
+        登録完了画面 --> u : 登録完了画面を表示
+    end
+    deactivate ユーザーデータ
+end
+
+deactivate 登録コントローラ
+
+@enduml

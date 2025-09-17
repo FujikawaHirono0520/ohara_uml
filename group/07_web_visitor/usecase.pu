@@ -4,15 +4,19 @@ left to right direction
 actor 訪問者
 
 rectangle 訪問者システム {
-  usecase "情報を登録する" as UC1
-  usecase "情報を参照する" as UC2
-  usecase "情報を変更する" as UC3
-  usecase "情報を削除する" as UC4
+  usecase "ログインする" as UC1
+  usecase "自分の情報を登録する" as UC2
+  usecase "自分の情報と他人の情報を参照する" as UC3
+  usecase "自分の情報を変更する" as UC4
+  usecase "自分の情報を削除する" as UC5
+  usecase "ログアウトする" as UC6
 }
 
 訪問者 --> UC1
 訪問者 --> UC2
 訪問者 --> UC3
 訪問者 --> UC4
+訪問者 --> UC5
+訪問者 --> UC6
 
 @enduml
