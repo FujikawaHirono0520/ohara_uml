@@ -1,0 +1,21 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class 訪問者 {
+ -ユーザーID
+ -パスワード
+ -名前
+ -学校名
+ -所属名
+ -メールアドレス
+ -電話番号
+ -年齢
+
+ +情報を登録する()
+ +情報を参照する()
+ +情報を変更する()
+ +情報を削除する()
+}
+
+@enduml
