@@ -16,9 +16,10 @@ class RoboDog {
  +setMyName()
  +setNewTime()
  +getMyGreeting()
- +2つの整数を設定()
+ +setFirstValue()
+ +setSecondValue()
  +足し算結果登録()
- +足し算結果取得()
+ +getAddition()
 }
 
 @enduml
