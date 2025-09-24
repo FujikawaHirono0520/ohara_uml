@@ -23,7 +23,7 @@ A -> B2: ２つの整数を入力()
 
 B2 -> C1: ２つの整数を登録()
 activate C1
-C1 -> E: setFirstValue()、setSecondValue()
+C1 -> E: setTwoValue()
 activate E
 E --> C1: 保存完了()
 deactivate E
@@ -31,7 +31,7 @@ deactivate E
 C1 -> C2: 足し算処理を行う()
 deactivate C1
 activate C2
-C2 -> E: getAddition()
+C2 -> E: setAndGetResult()
 activate E
 E --> C2: 登録完了()
 deactivate E
