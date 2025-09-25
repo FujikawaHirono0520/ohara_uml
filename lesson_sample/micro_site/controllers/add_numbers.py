@@ -3,7 +3,7 @@ from utils import parse_post, render_template
 
 
 def add_numbers(environ):
-    result = ""
+    addition = ""
     first = ""
     second = ""
     method = environ["REQUEST_METHOD"]
@@ -13,6 +13,6 @@ def add_numbers(environ):
         second = data.get("second_value", [""])[0]
         set_first_value(first)
         set_second_value(second)
-        result = get_addition()
+        addition = get_addition()
 
-    return render_template("boundaries/add_numbers_data.html", first=first, second=second, result=result)
+    return render_template("boundaries/add_numbers_data.html", first=first, second=second, addition=addition)

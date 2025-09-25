@@ -61,7 +61,7 @@ def set_second_value(value) -> None:
     with open(ROBODOG_FILE, 'w', encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def get_addition() -> str:
+def get_addition() -> int:
     """JSONから二つの整数を読み出し、足し算。なければ空文字"""
     try:
         with open(ROBODOG_FILE, "r", encoding="utf-8") as f:
@@ -70,7 +70,7 @@ def get_addition() -> str:
         #デフォルト値を0にする
         first = int(data.get("first_value", 0) or 0)
         second = int(data.get("second_value", 0) or 0)
-        result = first + second
-        return str(result)
+        addition = first + second
+        return addition
     except (json.JSONDecodeError, OSError, ValueError):
         return ""
