@@ -4,8 +4,6 @@ from utils import parse_post, render_template
 
 def add_numbers(environ):
     addition = ""
-    first = ""
-    second = ""
     method = environ["REQUEST_METHOD"]
     if method == "POST":
         data = parse_post(environ)
@@ -15,4 +13,4 @@ def add_numbers(environ):
         set_second_value(second)
         addition = get_addition()
 
-    return render_template("boundaries/add_numbers_data.html", first=first, second=second, addition=addition)
+    return render_template("boundaries/add_numbers_data.html", addition=addition)
