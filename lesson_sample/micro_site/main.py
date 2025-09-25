@@ -2,6 +2,7 @@ from wsgiref.simple_server import make_server
 from controllers.robodog_menu import robodog_menu
 from controllers.change_my_name_data import change_my_name_data
 from controllers.greet_with_time import greet_with_time
+from controllers.add_numbers import add_numbers_data
 
 
 def application(environ, start_response):
@@ -17,6 +18,9 @@ def application(environ, start_response):
 
     elif path == "/greeting":
         body = greet_with_time()
+    
+    elif path == "/calcu":
+        body = add_numbers_data(environ)
 
     else:
         start_response("404 Not Found", headers)
