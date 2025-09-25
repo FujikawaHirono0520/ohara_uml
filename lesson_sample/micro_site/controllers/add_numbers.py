@@ -2,8 +2,8 @@ from app_logic import get_addition, set_first_value, set_second_value
 from utils import parse_post, render_template
 
 
-def add_numbers_data(environ):
-    result = get_addition()
+def add_numbers(environ):
+    result = ""
     first = ""
     second = ""
     method = environ["REQUEST_METHOD"]
