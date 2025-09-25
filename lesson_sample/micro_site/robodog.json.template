@@ -4,4 +4,6 @@
   "good_morning": "おはよう",
   "good_afternoon": "こんにちは",
   "good_night": "こんばんは"
+  "first_value": 0,
+  "second_value": 0
 }
